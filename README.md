@@ -27,19 +27,6 @@ User can add tags for their post hence increasing the reach of the post to the r
 Performance Appraisal of Associates:-
 Supervisor can view the rating of the user on the knowledge sharing portal and consider one of the factor for appraisal or promotions.
 
-Software Used in Development:-
-
-Programming language used      :                        Django-Python, AngularJs 
-Server/Client side programming :                        JavaScript , Angular , Django-Python Rest Framewor
-Messaging                      :                        Celery
-Web server                     :                        Apache2
-
-Cloud Service Platform         :                         AWS EC2 , AWS S3
-Tools used                     :                         Sublime Text
-Database                       :                         MySQL
-
-
-
 Installation Steps:-
 
 Go to requirement.txt file of Django RestFul API
