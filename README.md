@@ -1,5 +1,5 @@
 # knowledge-repository-management-system
-It is a Knowledge Management Repository System which bsically fills the gap in sharing the knowledge among the organization.
+It is a Knowledge Management Repository System which basically fills the gap in sharing the knowledge among the organization.
 We are interesting in providing the feature in which the implicit knowledge can be converted into explicit knowledge because we find that some of the concepts and knowledge become explicit only when someone ask the question.
 
 Features It supports:-
@@ -31,11 +31,10 @@ Software Used in Development:-
 
 Programming language used      :                        Django-Python, AngularJs 
 Server/Client side programming :                        JavaScript , Angular , Django-Python Rest Framewor
-	Messaging                    :                         Celery
+Messaging                      :                        Celery
+Web server                     :                        Apache2
 
-	Web server                   :                        Apache2
-
-Cloud Service Platform         :                        AWS EC2 , AWS S3
+Cloud Service Platform         :                         AWS EC2 , AWS S3
 Tools used                     :                         Sublime Text
 Database                       :                         MySQL
 
