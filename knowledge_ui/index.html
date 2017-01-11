@@ -1,0 +1,216 @@
+<p><!DOCTYPE html>
+    <html lang="en" data-ng-app="geditorApp">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Knowledge Management Repository System</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/blog-home.css" rel="stylesheet">
+        <link href="css/search.css" rel="stylesheet">
+        <link href="css/login.css" rel="stylesheet">
+        <link href="css/user-profile.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Angular File Upload -->
+        <!-- angular -->
+        <script src="js/jquery.js"></script>
+        <script src="js/angular/angular-file-upload-shim.min.js"></script> 
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script> -->
+
+        <script type="text/javascript" src="js/angular/angular.js"></script>
+        <script src="js/angular/angular-file-upload.min.js"></script> 
+        <script type="text/javascript" src="js/angular/angular-resource.js"></script>
+        <script type="text/javascript" src="js/angular/angular-route.js"></script>
+        <script type="text/javascript" src="js/angular/angular-cookies.js"></script>
+        <script type="text/javascript" src="js/angular/ng-infinite-scroll.js"></script>
+
+        <!-- loadingbar -->
+        <script src="js/angular/loading-bar.js"></script>
+        <link href='css/angular/loading-bar.css' rel='stylesheet' />
+
+        <!-- Image Crop -->
+        <script src="js/angular/ng-img-crop.js"></script>
+        <base href="/knowledge_ui/"/>
+
+        <style type="text/css">
+            .login-social-link a{
+              display: block;
+              cursor: pointer;
+          }
+          #loading {
+            position: fixed;
+            top:10px;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            z-index: 999999;
+            background: #ccc;
+            font: 25px;
+            padding: 10px;
+            text-align: center;
+        }
+        #status {
+            position: fixed;
+            top:10px;
+            left: 50%;
+            margin-left: -200px;
+            width: 400px;
+            z-index: 9999999;        
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body data-ng-controller="AppController">
+    <div id="status" class="alert alert-block alert-danger fade in">
+      <button data-dismiss="alert" class="close close-sm" type="button">
+          <i class="icon-remove"></i>
+      </button>
+      <strong>Oh snap!</strong> There is an error while connecting to server.
+  </div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Knowledge Platform</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul  class="nav navbar-nav">
+                <li data-ng-controller="UserCtrl" ng-if="!loggedIn">
+                    <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                </li>
+                <li data-ng-controller="UserCtrl" class="dropdown" ng-if="loggedIn">
+                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> [[profile.name]] <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#/user/my-profile"><i class="fa fa-fw fa-user"></i> My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#/user/edit-profile"><i class="fa fa-fw fa-user"></i> Edit Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a ng-click="logout()"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#/articles">Articles</a>
+                </li>
+                <li>
+                    <a href="#/questions">Questions</a>
+                </li>
+                <li data-ng-controller= "SearchCtrl">
+                      <select  ng-model="category" style="margin-top: 3%; margin-left: 86%;" name="search_param" id="search_param" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <option value="questions">Questions</option>
+                            <option value="articles">Articles</option>
+                        </select>
+                    <div class="input-group" id="adv-search">
+                        <input ng-model="search" type="text" class="form-control" placeholder="Search for items" />
+                        <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <a ng-click="showResult()" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+ <div class="container">
+        <div data-ng-view=""></div>
+        </div>
+        <!-- Blog Sidebar Widgets Column -->
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-ng-controller="UserCtrl">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+        <h1>Login to Your Account</h1><br>
+        <form ng-submit="login()">
+            <label class="error-block help-block">[[ error_response ]]</label>
+            <input type="text" name="username" id="username"placeholder="Username">
+            <input type="password" name="password" id="password"placeholder="Password">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+        </form>
+
+        <div class="login-help">
+            <a href="#" ng-click="registerPage()">Register</a>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    function AppController ($scope, $rootScope, $http,  $window, $location, apiPrefix) {
+              // Load pages on startup
+              $scope.error = "There is problem at our ends.";
+              // Set the slug for menu active class
+              $scope.$on('routeLoaded', function (event, args) {
+                $scope.page = args.page;
+                if(args.error) {
+                  $scope.error = args.error;
+              }
+              console.log(args);
+          }); 
+          }
+      </script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- local apps -->
+      <script type="text/javascript" src="angular/apps/site/site-app.js"></script>
+      <script type="text/javascript" src="angular/apps/common/app-config.js"></script>
+      <script type="text/javascript" src="angular/apps/common/common-services.js"></script>
+     <script type="text/javascript" src="angular/apps/site/site-directive.js"></script>
+      <script type="text/javascript" src="angular/apps/site/site-controller.js"></script>
+  </body>
+
+  </html>
+</p>

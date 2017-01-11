@@ -1,0 +1,90 @@
+<div class="col-md-8">
+<div class="container">
+<div class="row profile">
+<div class="col-md-3">
+<div class="profile-sidebar">
+<!-- SIDEBAR USERPIC
+<div class="profile-userpic">
+	<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+</div>
+END SIDEBAR USERPIC -->
+<!-- SIDEBAR USER TITLE -->
+<div class="profile-usertitle">
+	<div class="profile-usertitle-name">
+		[[me.name]]
+	</div>
+	<div class="profile-usertitle-job">
+		Developer
+	</div>
+</div>
+<!-- END SIDEBAR USER TITLE -->
+<!-- SIDEBAR BUTTONS -->
+<!-- END SIDEBAR BUTTONS -->
+<!-- SIDEBAR MENU -->
+<div class="profile-usermenu">
+	<ul class="nav">
+		<li class="active">
+			<a href="#">
+				<i class="glyphicon glyphicon-home"></i>
+				Overview </a>
+			</li>
+				<li>
+					<a ng-click="showTab('question')" target="_blank">
+						<i class="glyphicon glyphicon-ok"></i>
+						Questions </a>
+					</li>
+					<li>
+						<a ng-click="showTab('article')">
+							<i class="glyphicon glyphicon-flag"></i>
+							Articles </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="profile-content">
+				<div ng-if ="tabShow" ng-repeat="article in articles.results">
+					<h3>
+						<a href="#">[[article.title]]</a>
+					</h3>
+					<p class="lead">
+						by <a href="index.php">[[article.owner_name]]</a>
+					</p>
+					<p><span class="glyphicon glyphicon-time"></span> Posted on [[article.created_on  | date:'medium']]</p>
+					<p>
+						<span class="glyphicon glyphicon-pencil"></span>
+						<a href="#/article/[[article.id]]/edit">&nbsp;Edit</a>&nbsp;&nbsp;&nbsp;
+						<span class="glyphicon glyphicon-download-alt">				
+						</span>
+						<a href="[[article.file_url]]" download>&nbsp;file_download</a></p>
+						<hr>
+						<p>[[article.description]]</p>
+						<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+						<hr>
+					</div>
+					<div ng-if ="!tabShow" ng-repeat="question in questions.results">
+						<h3>
+							<a href="#/question/[[question.id]]">[[question.title]]</a>
+						</h3>
+						<p class="lead">
+							by <a href="index.php">[[question.owner_name]]</a>
+						</p>
+						<p><span class="glyphicon glyphicon-time"></span> Posted on [[question.created_on  | date:'medium']]</p>
+					<p>
+						<span class="glyphicon glyphicon-pencil"></span>
+						<a href="#/question/[[question.id]]/edit">&nbsp;Edit</a>
+						</p>
+						<hr>
+						<p>[[question.description]]</p>
+						<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

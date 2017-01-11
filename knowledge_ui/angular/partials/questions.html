@@ -1,0 +1,86 @@
+
+    <div infinite-scroll="nextPage()" class="row">           <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2 class="page-header">
+                <div class = "row">
+                    <div class="col-md-8">
+                    Questions
+                    </div>
+                    <div class="col-md-4">
+                    <a href="#/question/new" class="btn btn-primary">Ask Question</a>
+                    </div>
+                </div>
+                </h2>
+
+                <!-- First Blog Post -->
+                <div ng-repeat="question in questions.results">
+                <h3>
+                    <a href="#/question/[[question.id]]">[[question.title]]</a>
+                </h3>
+                <p class="lead">
+                    by <a href="#/user/profile/[[question.owner_name]]">[[question.owner_name]]</a>
+                </p>
+                <p>
+                <span class=" glyphicon glyphicon-thumbs-up">&nbsp;<b>[[question.question_analytic.likes]]</b>&nbsp;&nbsp;</span>
+                <span class="glyphicon glyphicon-search">&nbsp;<b>[[question.question_analytic.views]]</b>&nbsp;&nbsp;</span>
+                <span class="glyphicon glyphicon-time"></span> Posted on [[question.created_on  | date:'medium']]</p>
+
+                <hr>
+                <p>[[question.description]]</p>
+                <a class="btn btn-primary" href="#/question/[[question.id]]">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+                </div>
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+
+                <!-- Latest Posts -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Latest Posts</h4>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat ="question in questions.results | limitTo: 5"><a href="#/question/[[question.id]]">[[question.title]] [[question.created_on  | date:'medium']]</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <!--<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Categories</h4>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">Signs</a></li>
+                        <li class="list-group-item"><a href="#">Elements</a></li>
+                        <li class="list-group-item"><a href="#">Planets</a></li>
+                        <li class="list-group-item"><a href="#">Cusps</a></li>
+                        <li class="list-group-item"><a href="#">Compatibility</a></li>
+                    </ul>
+                </div>-->
+
+                <!-- Recent Comments -->
+                <!--<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Recent Comments</h4>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">I don't believe in astrology but still your writing style is really great! - <em>john</em></a></li>
+                        <li class="list-group-item"><a href="#">Wow.. what you said is really true! I'm an aries though - <em>Anto</em></a></li>
+                        <li class="list-group-item"><a href="#">Does capricorn and aries is compatibile? - <em>Sarah</em></a></li>
+                        <li class="list-group-item"><a href="#">I'm a cancer woman been in love with Leo. Will this work? - <em>Mary</em></a></li>
+                    </ul>
+                </div>-->
+
+            </div>
+            </div>

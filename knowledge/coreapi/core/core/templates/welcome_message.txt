@@ -1,0 +1,9 @@
+{% block body %}
+Hello {{ owner }}
+
+Awesome!! Welcome to Knowledge Platform.
+
+Lets Share and enhanced knowledge together.
+
+Cognizant
+{% endblock %}

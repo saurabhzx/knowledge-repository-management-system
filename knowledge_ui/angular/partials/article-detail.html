@@ -1,0 +1,64 @@
+<!-- Blog Post Content Column -->
+<div class="col-lg-8">
+
+    <!-- Blog Post -->
+
+    <!-- Title -->
+    <h2>[[article.title]]</h2>
+
+    <!-- Author -->
+    <p class="lead">
+        by <a href="#">[[article.owner_name]]</a>
+    </p>
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p>
+    <a ng-click= "like(article)"><span class=" glyphicon glyphicon-thumbs-up">&nbsp;<b>[[article.article_analytic.likes]]</b>&nbsp;&nbsp;</span></a>
+    <span class="glyphicon glyphicon-search">&nbsp;<b>[[article.article_analytic.views]]</b>&nbsp;&nbsp;</span>
+    <span class="glyphicon glyphicon-download-alt"></span><a href="[[article.file_url]]" download>&nbsp;file_download</a>&nbsp;&nbsp;
+    <span class="glyphicon glyphicon-time"></span> Posted on [[article.created_on  | date:'medium']]
+    </p>
+
+
+    <!-- Preview Image 
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">-->
+
+    <hr>
+
+    <!-- Post Content -->
+    <p class="lead">[[article.description]]</p>
+
+    <hr>
+
+    <!-- Blog Comments -->
+
+    <!-- Comments Form -->
+    <div class="well">
+        <h4>Leave a Comment:</h4>
+        <form role="form" ng-submit="submitComment(comment)">
+            <div class="form-group">
+                <textarea class="form-control" ng-model="comment.comment" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Posted Comments -->
+
+    <!-- Comment -->
+    <div ng-repeat="comment in comments" class="media">
+        <a class="pull-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64" alt="">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">[[comment.user_comment]]
+                <small>[[comment.created_on | date: 'medium']]</small>
+            </h4>
+            [[comment.comment]]
+        </div>
+    </div>
+</div>

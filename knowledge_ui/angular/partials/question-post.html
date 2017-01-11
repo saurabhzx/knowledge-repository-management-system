@@ -1,0 +1,67 @@
+<div class="col-lg-8">
+    <div id="page-wrapper">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Post Question
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form role="form" ng-submit="save(question)">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" ng-model="question.title" class="form-control" required>
+                                        <p class="help-block">Example : How to do routing in Angular2?</p>
+                                        <div ng-repeat="e in error.title">
+                                          <label class="error-block help-block">[[ e ]]</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea ng-model = "question.description" class="form-control" rows="3" required></textarea>
+                                        <div ng-repeat="e in error.description">
+                                          <label class="error-block help-block">[[ e ]]</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tags</label>
+                                        <input type="text" ng-model = "question.tags" class="form-control" placeholder="Java,Spring etc." required>
+                                    </div>
+                                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Submit Button</button>
+                                    <button type="reset" class="btn btn-default">Reset Button</button>
+                                </form>
+                            </div>
+                            <!-- /.col-lg-6 (nested) -->
+                            <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+
+<div class="modal" id="QuestionModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Message</h4>
+    </div>
+    <div class="modal-body">
+      Question Posted Successfully.
+    </div>
+      <div class="modal-footer">
+        <a href="#/questions" class="btn btn-default">Close
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="col-lg-8">
+    <div id="page-wrapper">
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Post Article
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form role="form" ng-submit="save(article)">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" ng-model="article.title"class="form-control">
+                                        <p class="help-block">eg: Serialization in Python</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Upload File</label>
+                                        <input type="file" ng-model="article.file" file-model="article.file">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" rows="3" ng-model="article.description"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tags</label>
+                                        <input type="text" class="form-control" ng-model="article.tags" placeholder="Java,Angular">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Button</button>
+                                    <button type="reset" class="btn btn-default">Reset Button</button>
+                                </form>
+                            </div>
+                            <!-- /.col-lg-6 (nested) -->
+                            <!-- /.col-lg-6 (nested) -->
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+
+<div class="modal fade" id="postArticle" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Article Posted</h4>
+    </div>
+    <div class="modal-body">
+      Your article has been posted successfully.
+    </div>
+      <div class="modal-footer">
+        <a class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>

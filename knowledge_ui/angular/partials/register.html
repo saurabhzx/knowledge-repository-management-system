@@ -1,0 +1,69 @@
+
+<div class="col-md-8">
+  <section class="panel">
+      <header class="panel-heading">
+         <b>Registration<b>
+      </header>
+      <hr>
+      <div class="panel-body">
+        <form class="form-horizontal tasi-form" ng-submit="signup(user, 'auth')">
+          <div class="form-group" ng-class="error.first_name && 'has-error' || '' ">
+            <label class="col-sm-2 control-label">FirstName</label>
+              <div class="col-sm-10">            
+                  <input ng-model="user.first_name" name="first_name"  maxlength="30" type="text" class="form-control" required>
+                  <label class="error-block help-block">[[ error.first_name ]]</label>
+              </div>
+            </div>
+          <div class="form-group" ng-class="error.last_name && 'has-error' || '' ">
+            <label class="col-sm-2 control-label">LastName</label>
+              <div class="col-sm-10">            
+                  <input ng-model="user.last_name" name="last_name"  maxlength="30" type="text" class="form-control" required>
+                  <label class="error-block help-block">[[ error.last_name ]]</label>
+              </div>
+            </div>
+          <div class="form-group" ng-class="error.username && 'has-error' || '' ">
+            <label class="col-sm-2 control-label">Username</label>
+              <div class="col-sm-10">            
+                  <input ng-model="user.username" name="username"  maxlength="30" type="text" class="form-control" required>
+                  <label class="error-block help-block">[[ error.username ]]</label>
+                  <span class="help-block">30 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+              </div>
+            </div>
+            <div class="form-group" ng-class="error.password && 'has-error' || '' ">
+              <label class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input ng-model="user.password" name="password" type="password" class="form-control" required/><br/>
+                <input ng-model="user.password2" name="password2" type="password" class="form-control" required />
+                <label class="error-block help-block">[[ error.password ]]</label>                  
+                <span class="help-block">Enter the same password as above, for verification.</span>
+              </div>
+            </div>
+            <div class="form-group" ng-class="error.email && 'has-error' || '' ">
+              <label class="col-sm-2 control-label">Contact Email</label>
+              <div class="col-sm-10">
+                  <input ng-model="user.email" name="email" type="email" class="form-control" required>
+                  <label class="error-block help-block">[[ error.email ]]</label>                 
+                  <span class="help-block">Please enter valid email address</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </form>
+      </div>
+  </section>
+</div>
+
+<div class="modal fade" id="CreatedModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Account Created</h4>
+    </div>
+    <div class="modal-body">
+      Your account has been created.Please login.
+    </div>
+      <div class="modal-footer">
+        <a href="#/" class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
